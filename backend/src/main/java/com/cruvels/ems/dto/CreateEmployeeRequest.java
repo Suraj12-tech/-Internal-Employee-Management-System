@@ -9,7 +9,6 @@ import lombok.Setter;
 
 import java.time.LocalDate;
 
-// Used by Admin when creating a new employee (this also creates the login User).
 @Getter
 @Setter
 public class CreateEmployeeRequest {
@@ -21,7 +20,7 @@ public class CreateEmployeeRequest {
     private String email;
 
     @NotBlank
-    private String password; // plain text from the form; we hash it before saving
+    private String password; 
 
     @NotNull
     private Role role;
@@ -29,5 +28,5 @@ public class CreateEmployeeRequest {
     private Long departmentId;
     private String designation;
     private LocalDate joiningDate;
-    private Long managerId; // optional
+    private Long managerId; 
 }
