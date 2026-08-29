@@ -8,8 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 
-// Small helper used by every service to figure out "who is making this request right now".
-// Since our JWT filter puts the user's email into the SecurityContext, we read it from there.
 @Component
 @RequiredArgsConstructor
 public class CurrentUserProvider {

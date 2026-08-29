@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-// Tells Spring Security HOW to load a user (by email) and what their role/authority is.
-// Spring Security calls this automatically during the login process.
 @Service
 @RequiredArgsConstructor
 public class CustomUserDetailsService implements UserDetailsService {
@@ -22,7 +20,6 @@ public class CustomUserDetailsService implements UserDetailsService {
         User user = userRepository.findByEmail(email)
                 .orElseThrow(() -> new UsernameNotFoundException("No user found with email: " + email));
 
-        // "ROLE_ADMIN", "ROLE_MANAGER" etc. - Spring Security convention requires the "ROLE_" prefix
         return new org.springframework.security.core.userdetails.User(
                 user.getEmail(),
                 user.getPassword(),

@@ -35,7 +35,8 @@ public class Employee {
     private LocalDate joiningDate;
 
     // Self-referencing relationship: an Employee's manager is ALSO an Employee.
-    // This is how we build the reporting hierarchy (who reports to whom).
+    // This is how we build the reporting hierarchy (w
+    // ho reports to whom).
     @ManyToOne
     @JoinColumn(name = "manager_id")
     private Employee manager;

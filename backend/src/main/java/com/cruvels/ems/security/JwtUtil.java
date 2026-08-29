@@ -10,8 +10,6 @@ import javax.crypto.SecretKey;
 import java.util.Date;
 import java.util.function.Function;
 
-// Small helper class responsible for everything JWT related:
-// creating tokens on login, and reading/validating them on every request.
 @Component
 public class JwtUtil {
 
@@ -25,7 +23,6 @@ public class JwtUtil {
         return Keys.hmacShaKeyFor(secret.getBytes());
     }
 
-    // Creates a new token that "remembers" the user's email and role.
     public String generateToken(String email, String role) {
         return Jwts.builder()
                 .subject(email)
@@ -48,7 +45,7 @@ public class JwtUtil {
         try {
             return !extractClaim(token, Claims::getExpiration).before(new Date());
         } catch (Exception e) {
-            return false; // any parsing/signature error = invalid token
+            return false;
         }
     }
 
