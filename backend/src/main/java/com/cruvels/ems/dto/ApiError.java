@@ -5,7 +5,6 @@ import lombok.Getter;
 
 import java.time.LocalDateTime;
 
-// A consistent shape for every error response the API sends back.
 @Getter
 @AllArgsConstructor
 public class ApiError {
