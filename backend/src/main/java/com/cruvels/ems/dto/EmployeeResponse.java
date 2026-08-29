@@ -7,8 +7,7 @@ import lombok.Getter;
 
 import java.time.LocalDate;
 
-// What we send back to the frontend for an employee.
-// Notice: NO password field here - we never expose sensitive data in API responses.
+
 @Getter
 @AllArgsConstructor
 public class EmployeeResponse {
