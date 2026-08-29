@@ -18,13 +18,9 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.List;
 
-// The central place where we define:
-// 1. Which URLs need authentication vs which are public
-// 2. That we're using JWT (stateless - no server-side session)
-// 3. Password hashing algorithm (BCrypt)
-// 4. CORS rules, so our React frontend (different port) can call this API
+
 @Configuration
-@EnableMethodSecurity // enables @PreAuthorize on controller methods
+@EnableMethodSecurity 
 @RequiredArgsConstructor
 public class SecurityConfig {
 
@@ -32,7 +28,7 @@ public class SecurityConfig {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder(); // industry-standard one-way password hashing
+        return new BCryptPasswordEncoder(); 
     }
 
     @Bean
@@ -43,13 +39,13 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) // not needed for stateless token-based APIs
+                .csrf(csrf -> csrf.disable())
                 .cors(cors -> cors.configurationSource(corsConfigurationSource()))
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers("/api/auth/**").permitAll() // login endpoint is public
-                        .requestMatchers("/h2-console/**").permitAll() // only used during tests
-                        .anyRequest().authenticated() // EVERYTHING else needs a valid token
+                        .requestMatchers("/api/auth/**").permitAll() 
+                        .requestMatchers("/h2-console/**").permitAll() 
+                        .anyRequest().authenticated() 
                 )
                 .addFilterBefore(jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);
 
@@ -59,7 +55,7 @@ public class SecurityConfig {
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
-        configuration.setAllowedOrigins(List.of("http://localhost:5173")); // React dev server
+        configuration.setAllowedOrigins(List.of("http://localhost:5173")); 
         configuration.setAllowedMethods(List.of("GET", "POST", "PUT", "DELETE", "OPTIONS"));
         configuration.setAllowedHeaders(List.of("*"));
         configuration.setAllowCredentials(true);
