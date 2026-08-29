@@ -1,0 +1,107 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: #f4f5f7;
+  color: #1a1a2e;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 28px;
+  background: #1a1a2e;
+  color: white;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.navbar-brand { font-weight: 700; font-size: 18px; letter-spacing: 1px; }
+.navbar-links { display: flex; gap: 20px; }
+.navbar-links a { color: #cfd2e0; text-decoration: none; font-size: 14px; }
+.navbar-links a:hover { color: white; }
+.navbar-user { display: flex; align-items: center; gap: 12px; font-size: 14px; }
+.navbar-user button {
+  background: #e94560; border: none; color: white; padding: 6px 14px;
+  border-radius: 6px; cursor: pointer; font-size: 13px;
+}
+
+/* ===== Layout ===== */
+.page { max-width: 1000px; margin: 0 auto; padding: 32px 24px; }
+.page h1 { margin-bottom: 4px; }
+.subtitle { color: #6b7280; margin-top: 0; }
+
+/* ===== Auth page ===== */
+.auth-page {
+  min-height: 100vh; display: flex; align-items: center; justify-content: center;
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+}
+.auth-card {
+  background: white; padding: 40px; border-radius: 12px; width: 360px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+.auth-card h1 { font-size: 20px; margin-bottom: 4px; }
+.auth-card label { display: block; margin-top: 14px; margin-bottom: 4px; font-size: 13px; font-weight: 600; }
+.auth-card input, .auth-card select, .auth-card textarea {
+  width: 100%; padding: 10px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px;
+}
+.auth-card button {
+  margin-top: 20px; width: 100%; padding: 11px; background: #e94560; color: white;
+  border: none; border-radius: 6px; font-size: 15px; cursor: pointer; font-weight: 600;
+}
+.auth-card button:disabled { opacity: 0.6; cursor: not-allowed; }
+.demo-hint {
+  margin-top: 20px; padding: 12px; background: #f4f5f7; border-radius: 8px; font-size: 12px; color: #4b5563;
+}
+.demo-hint div { margin-top: 2px; }
+
+/* ===== Banners ===== */
+.error-banner {
+  background: #fef2f2; color: #b91c1c; padding: 10px 14px; border-radius: 6px;
+  font-size: 13px; margin-bottom: 10px;
+}
+.success-banner {
+  background: #f0fdf4; color: #15803d; padding: 10px 14px; border-radius: 6px;
+  font-size: 13px; margin-bottom: 10px;
+}
+
+/* ===== Stats ===== */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-top: 24px; }
+.stat-card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.stat-value { font-size: 28px; font-weight: 700; color: #e94560; }
+.stat-label { font-size: 13px; color: #6b7280; margin-top: 4px; text-transform: capitalize; }
+
+/* ===== Cards / forms ===== */
+.card { background: white; padding: 24px; border-radius: 10px; margin-top: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.08); }
+.card h2 { margin-top: 0; font-size: 16px; }
+.inline-form label { display: block; font-size: 13px; font-weight: 600; margin-top: 10px; margin-bottom: 4px; }
+.inline-form input, .inline-form select, .inline-form textarea {
+  width: 100%; max-width: 400px; padding: 8px; border: 1px solid #d1d5db; border-radius: 6px; font-size: 14px;
+}
+.inline-form button {
+  margin-top: 16px; padding: 9px 18px; background: #e94560; color: white; border: none;
+  border-radius: 6px; cursor: pointer; font-weight: 600;
+}
+
+/* ===== Tables ===== */
+.data-table { width: 100%; border-collapse: collapse; margin-top: 16px; background: white; border-radius: 8px; overflow: hidden; }
+.data-table th, .data-table td { padding: 10px 14px; text-align: left; font-size: 13px; border-bottom: 1px solid #f0f0f0; }
+.data-table th { background: #f9fafb; font-weight: 600; color: #374151; }
+
+/* ===== Badges ===== */
+.badge { padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+.badge-green { background: #dcfce7; color: #15803d; }
+.badge-gray { background: #f3f4f6; color: #6b7280; }
+.badge-red { background: #fee2e2; color: #b91c1c; }
+
+/* ===== Buttons ===== */
+.action-row { display: flex; gap: 10px; margin-top: 16px; }
+.action-row button { padding: 10px 20px; border: none; border-radius: 6px; background: #e94560; color: white; cursor: pointer; font-weight: 600; }
+.action-row button.secondary { background: #374151; }
+.btn-small { padding: 5px 10px; font-size: 12px; border: none; border-radius: 5px; background: #e94560; color: white; cursor: pointer; margin-right: 6px; }
+.btn-small.secondary { background: #6b7280; }
+
+/* ===== Search ===== */
+.search-box { padding: 9px 12px; width: 100%; max-width: 320px; border: 1px solid #d1d5db; border-radius: 6px; margin-top: 12px; font-size: 14px; }
