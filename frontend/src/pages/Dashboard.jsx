@@ -18,7 +18,6 @@ export default function Dashboard() {
   if (loading) return <div className="page"><p>Loading dashboard...</p></div>
   if (error) return <div className="page"><p className="error-banner">{error}</p></div>
 
-  // Different stat cards depending on the field names each role's backend response returns
   const entries = Object.entries(stats || {})
 
   return (
@@ -42,7 +41,6 @@ export default function Dashboard() {
   )
 }
 
-// turns "totalEmployees" into "Total Employees"
 function formatLabel(key) {
   const withSpaces = key.replace(/([A-Z])/g, ' $1')
   return withSpaces.charAt(0).toUpperCase() + withSpaces.slice(1)
