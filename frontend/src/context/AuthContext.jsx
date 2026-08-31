@@ -1,8 +1,7 @@
 import { createContext, useContext, useState } from 'react'
 import api from '../api/axios'
 
-// AuthContext lets any page in the app know "who is logged in right now"
-// without having to pass that information down manually through every component.
+
 const AuthContext = createContext(null)
 
 export function AuthProvider({ children }) {
